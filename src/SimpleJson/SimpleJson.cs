@@ -20,10 +20,10 @@
 // VERSION:
 
 // NOTE: uncomment the following line to make SimpleJson class internal.
-//#define SIMPLE_JSON_INTERNAL
+#define SIMPLE_JSON_INTERNAL
 
 // NOTE: uncomment the following line to make JsonArray and JsonObject class internal.
-//#define SIMPLE_JSON_OBJARRAYINTERNAL
+#define SIMPLE_JSON_OBJARRAYINTERNAL
 
 // NOTE: uncomment the following line to enable dynamic support.
 //#define SIMPLE_JSON_DYNAMIC
@@ -66,7 +66,7 @@ using System.Globalization;
 using System.Reflection;
 using System.Runtime.Serialization;
 using System.Text;
-using SimpleJson.Reflection;
+using Paseto.Internal.SimpleJson.Reflection;
 
 // ReSharper disable LoopCanBeConvertedToQuery
 // ReSharper disable RedundantExplicitArrayCreation
@@ -87,12 +87,12 @@ namespace Paseto.Internal.SimpleJson
  class JsonArray : List<object>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="JsonArray"/> class. 
+        /// Initializes a new instance of the <see cref="JsonArray"/> class.
         /// </summary>
         public JsonArray() { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="JsonArray"/> class. 
+        /// Initializes a new instance of the <see cref="JsonArray"/> class.
         /// </summary>
         /// <param name="capacity">The capacity of the json array.</param>
         public JsonArray(int capacity) : base(capacity) { }
@@ -484,12 +484,12 @@ namespace Paseto.Internal.SimpleJson
     }
 }
 
-namespace SimpleJson
+namespace Paseto.Internal.SimpleJson
 {
     /// <summary>
     /// This class encodes and decodes JSON strings.
     /// Spec. details, see http://www.json.org/
-    /// 
+    ///
     /// JSON uses Arrays and Objects. These correspond here to the datatypes JsonArray(IList&lt;object>) and JsonObject(IDictionary&lt;string,object>).
     /// All numbers are parsed to doubles.
     /// </summary>
@@ -1222,7 +1222,7 @@ namespace SimpleJson
 
 #endif
     }
-    
+
     [GeneratedCode("simple-json", "1.0.0")]
 #if SIMPLE_JSON_INTERNAL
     internal
@@ -1335,7 +1335,7 @@ namespace SimpleJson
 
             if (value == null)
                 return null;
-            
+
             object obj = null;
 
             if (str != null)
@@ -1358,8 +1358,8 @@ namespace SimpleJson
 
 												return null;
                     }
-                  
-									if (type == typeof(string))  
+
+									if (type == typeof(string))
 										return str;
 
 									return Convert.ChangeType(str, type, CultureInfo.InvariantCulture);
@@ -1379,7 +1379,7 @@ namespace SimpleJson
             }
             else if (value is bool)
                 return value;
-            
+
             bool valueIsLong = value is long;
             bool valueIsDouble = value is double;
             if ((valueIsLong && type == typeof(long)) || (valueIsDouble && type == typeof(double)))
