@@ -71,7 +71,7 @@ using SimpleJson.Reflection;
 // ReSharper disable LoopCanBeConvertedToQuery
 // ReSharper disable RedundantExplicitArrayCreation
 // ReSharper disable SuggestUseVarKeywordEvident
-namespace SimpleJson
+namespace Paseto.Internal.SimpleJson
 {
     /// <summary>
     /// Represents the json array.
